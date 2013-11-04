@@ -58,20 +58,3 @@ def do_it(path)
   puts "********** #{client.rate_limit}"
   puts updated_ref
 end
-
-def lets_do_dis
-
-  begin
-    response = yield
-    puts '*** RESPONSE ***'
-    pp response
-    response
-  rescue Octokit::Conflict => e
-    latest_reference = client.refs(content_repo)
-    latest_reference
-
-    pp e
-    raise e
-  end
-
-end
